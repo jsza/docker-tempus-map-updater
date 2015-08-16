@@ -5,4 +5,4 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -qy install --no-in
 COPY ./map_updater.sh /usr/local/bin/map_updater.sh
 COPY ./default_level_sounds.txt /srv/default_level_sounds.txt
 
-ENTRYPOINT ["/home/steam/steamcmd/run_tf2.sh"]
+ENTRYPOINT ["/usr/local/bin/map_updater.sh"]
