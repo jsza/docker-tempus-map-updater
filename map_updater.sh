@@ -1,4 +1,5 @@
 #!/bin/sh
+umask 022
 cd /srv/maps/
 
 if [ -f index.html ]
