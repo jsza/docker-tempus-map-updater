@@ -1,6 +1,6 @@
 #!/bin/sh
 umask 022
-cd /srv/maps/
+cd /srv/tempus_maps/
 
 if [ -f index.html ]
 then
