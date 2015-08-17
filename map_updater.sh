@@ -51,3 +51,5 @@ done
 
 rm converted.txt
 rm index.html
+
+touch tempus_map_updater_run_once
