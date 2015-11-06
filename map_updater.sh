@@ -28,13 +28,8 @@ default="/srv/default_level_sounds.txt"
 for file in *.bsp
 do
         map="${file%.*}_level_sounds.txt"
-        if [ ! -f $map ]
-        then
-                echo "Creating $map..."
-                cp $default $map
-        fi
+        cp -f $default $map
 done
-echo "Finished creating level sounds. Now cleaning up"
 
 for file2 in *level_sounds.txt
 do
