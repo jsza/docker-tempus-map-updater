@@ -1,13 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 umask 022
 cd /srv/tempus_maps/
+
+SERVERURL="http://tempus.site.nfoservers.com/server/maps/"
 
 if [ -f index.html ]
 then
         rm index.html
 fi
 
-wget --no-remove-listing http://tempus.site.nfoservers.com/server/maps/
+if [ -n "$1" ]
+then
+        SERVERURL="$1"
+        if [[ "$SERVERURL" != */ ]]
+        then
+                SERVERURL+='/'
+        fi
+fi
+
+wget --no-remove-listing "${SERVERURL}"
 if [ -f allmaps.txt ]
 then
         rm allmaps.txt
@@ -19,8 +30,7 @@ do
         if [ ! -f $line ]
         then
                 echo "Unable to find $line. Downloading..."
-                wget http://tempus.site.nfoservers.com/server/maps/$line.bz2
-                bzip2 -d $line.bz2
+                wget "${SERVERURL}"$line.bz2
         fi
 done
 
