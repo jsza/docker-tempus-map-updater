@@ -31,6 +31,7 @@ do
         then
                 echo "Unable to find $line. Downloading..."
                 wget "${SERVERURL}"$line.bz2
+                bzip2 -d $line.bz2
         fi
 done
 
